@@ -18,17 +18,13 @@ def fractional_part(*args):
     return listDrob
 
 def find_difference(listDrob):
-    max_float = 0
-    min_float = 0
-    for i in range(len(listDrob)):
-        if listDrob[i] > max_float:
-            max_float = listDrob[i]
-        elif listDrob[i] < max_float:
-            min_float = listDrob[i]
-    result = max_float - min_float
+    sortedList = sorted(listDrob)
+    maxElem = sortedList[-1]
+    minElem = sortedList[0]
+    result = round((maxElem - minElem), 2)
     return result
 
 list = [1.1, 1.2, 3.1, 10.01]
-fractions = fractional_part(list)
-result = find_difference(fractions)
+listDrob = fractional_part(list)
+result = find_difference(listDrob)
 print(f'Разница между макс и мин знач дробной части элементов: {result}')
